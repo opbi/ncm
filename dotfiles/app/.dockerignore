@@ -1,0 +1,22 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+build/
+.build
+
+# test output
+coverage/
+reports/
+
+# devlopment cache
+docker_compose/
+data/
+
+# dotfiles
+.*
+circle.yml
+Dockerfile
+README.md
+LICENSE

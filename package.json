@@ -1,0 +1,45 @@
+{
+  "name": "@opbi/ncm",
+  "repository": "git@github.com:opbi/ncm.git",
+  "author": "OPBI <engineering@opbi.org>",
+  "private": true,
+  "dependencies": {
+    "commander": "^2.19.0",
+    "cosmiconfig": "^5.0.7",
+    "cpy": "^7.0.1",
+    "inquirer": "^6.2.0",
+    "jsonfile": "^5.0.0",
+    "node-vault": "^0.9.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/preset-env": "^7.1.6",
+    "@commitlint/cli": "^7.2.1",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@commitlint/prompt-cli": "^7.2.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "coveralls": "^3.0.2",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-import-resolver-node": "^0.3.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint_d": "^7.1.0",
+    "husky": "^1.1.4",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.2",
+    "semantic-release": "^15.12.0"
+  },
+  "engines": {
+    "node": ">=8.10"
+  },
+  "main": "dist/index.js"
+}

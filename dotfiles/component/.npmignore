@@ -1,0 +1,6 @@
+# ignore everything
+*
+
+# exclusion list
+!package.json
+!dist/**/*

@@ -1,0 +1,21 @@
+---
+language: node_js
+node_js:
+  - v8.10.0
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  - make install
+script:
+  - make test-coverage
+after_success:
+  - cat coverage/lcov.info | coveralls
+  - make build release
+branches:
+  only:
+    - master
+
+notifications:
+  email: false
