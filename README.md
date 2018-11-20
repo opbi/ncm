@@ -1,4 +1,6 @@
-<h1 align="center" style="border-bottom: none;">ncm</h1>
+<p align="center">
+    <img alt="ncm" src="https://raw.githubusercontent.com/opbi/logo/master/ncm/ncm.svg?sanitize=true" width="160">
+</p>
 <h3 align="center">node config manager</h3>
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/ncm">
