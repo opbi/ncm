@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/ncm">
-    <img alt="npm latest version" src="https://img.shields.io/npm/v/@opbi/ncm/latest.svg">
+    <img alt="npm" src="https://img.shields.io/npm/v/@opbi/ncm.svg">
   </a>
   <a href="https://travis-ci.org/opbi/ncm">
     <img alt="Travis" src="https://img.shields.io/travis/opbi/ncm/master.svg">
