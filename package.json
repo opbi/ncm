@@ -3,6 +3,9 @@
   "repository": "git@github.com:opbi/ncm.git",
   "author": "OPBI <engineering@opbi.org>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "commander": "^2.19.0",
     "cosmiconfig": "^5.0.7",
