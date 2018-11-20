@@ -27,9 +27,9 @@ const setupVaultWithGithubToken = async ({ endpoint }) => {
 const setupVaultClient = async ({
   endpoint = process.env.VAULT_ADDR,
   token = process.env.VAULT_TOKEN,
-  github = false,
+  auth = 'token',
 }) => {
-  if (github) {
+  if (auth.toLowerCase() === 'github') {
     const vaultClient = await setupVaultWithGithubToken({ endpoint });
     return vaultClient;
   }
@@ -49,8 +49,8 @@ const setupVaultClient = async ({
   }
 };
 
-const getVaultSecrets = async ({ endpoint, token, github, scope }) => {
-  const vaultClient = await setupVaultClient({ endpoint, token, github });
+const getVaultSecrets = async ({ endpoint, token, auth, scope }) => {
+  const vaultClient = await setupVaultClient({ endpoint, token, auth });
   const { data } = await vaultClient.read(scope);
   return data;
 };

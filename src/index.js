@@ -16,9 +16,9 @@ cli
   .alias('.env')
   .description('write vault dev secrets to .env')
   .option('-s, --scope <scope>', 'path of the secret in vault')
-  .option('-e --endpoint [vault_endpoint]', 'endpoint of the vault server')
+  .option('-e --endpoint [vaultEndpoint]', 'endpoint of the vault server')
   .option('-t, --token [token]', 'vault auth token')
-  .option('--github', 'using github token as vault auth method')
+  .option('-a, --auth [method]', 'vault auth method: [token], github')
   .action(dotenvAction);
 
 cli

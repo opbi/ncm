@@ -3,13 +3,13 @@ import { objToDotenv } from 'lib/format';
 import { writeFile } from 'lib/fs';
 import { CWD } from 'constants';
 
-export default async ({ endpoint, token, github, scope }) => {
+export default async ({ scope, endpoint, token, auth }) => {
   try {
     const secrets = await getSecretsFromVault({
+      scope,
       endpoint,
       token,
-      github,
-      scope,
+      auth,
     });
     const content = objToDotenv(secrets);
     const DOTENV_FILENAME = '.env';
