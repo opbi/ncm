@@ -1,11 +1,31 @@
-# ncm
+<h1 align="center" style="border-bottom: none;">ncm</h1>
+<h3 align="center">node config manager</h3>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@opbi/ncm">
+    <img alt="npm latest version" src="https://img.shields.io/npm/v/@opbi/ncm/latest.svg">
+  </a>
+  <a href="https://travis-ci.org/opbi/ncm">
+    <img alt="Travis" src="https://img.shields.io/travis/opbi/ncm/master.svg">
+  </a>
+  <a href="https://coveralls.io/github/opbi/ncm?branch=master">
+    <img alt="Coveralls" src="https://img.shields.io/coveralls/github/opbi/ncm/master.svg">
+  </a>
+  <a href="https://github.com/semantic-release/semantic-release">
+    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+</p>
 
-node config manager
-
-[![npm version](https://badge.fury.io/js/%40opbi%2Fncm.svg)](https://badge.fury.io/js/%40opbi%2Fncm)
-[![Build Status](https://travis-ci.org/opbi/ncm.svg?branch=master)](https://travis-ci.org/opbi/ncm)
-[![Coverage Status](https://coveralls.io/repos/github/opbi/ncm/badge.svg?branch=master)](https://coveralls.io/github/opbi/ncm?branch=master)
-[![Known Vulnerabilities](https://snyk.io/test/github/opbi/ncm/badge.svg)](https://snyk.io/test/github/opbi/ncm)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/opbi/ncm/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/opbi/ncm/?branch=master)
-[![Dependencies](https://david-dm.org/opbi/ncm.svg)](https://david-dm.org/opbi/ncm)
-[![devDependencies](https://david-dm.org/opbi/ncm/dev-status.svg)](https://david-dm.org/opbi/ncm?type=dev)
+<p align="center">
+  <a href="https://snyk.io/test/github/opbi/ncm">
+    <img alt="Known Vulnerabilities" src="https://snyk.io/test/github/opbi/ncm/badge.svg">
+  </a>
+  <a href="https://david-dm.org/opbi/ncm">
+    <img alt="Dependencies" src="https://img.shields.io/david/opbi/ncm.svg">
+  </a>
+  <a href="https://david-dm.org/opbi/ncm?type=dev">
+    <img alt="devDependencies" src="https://img.shields.io/david/dev/opbi/ncm.svg">
+  </a>
+  <a href="https://david-dm.org/opbi/ncm?type=dev">
+    <img alt="Scrutinizer Code Quality" src="https://img.shields.io/scrutinizer/g/opbi/ncm.svg">
+  </a>
+</p>
