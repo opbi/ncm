@@ -25,7 +25,7 @@
   <a href="https://david-dm.org/opbi/ncm?type=dev">
     <img alt="devDependencies" src="https://img.shields.io/david/dev/opbi/ncm.svg">
   </a>
-  <a href="https://david-dm.org/opbi/ncm?type=dev">
+  <a href="https://scrutinizer-ci.com/g/opbi/ncm/?branch=master">
     <img alt="Scrutinizer Code Quality" src="https://img.shields.io/scrutinizer/g/opbi/ncm.svg">
   </a>
 </p>
