@@ -1,5 +1,9 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:base",
+    ":preserveSemverRanges",
+    "docker:disable",
+    "schedule:earlyMondays"
+  ],
+  "node": false
 }
