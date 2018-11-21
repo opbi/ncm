@@ -41,7 +41,7 @@ export const generatePackageJson = async ({
     };
   }
 
-  const TARGET_PATH = `${CWD}/${packageName}/pacakge.json`;
+  const TARGET_PATH = `${CWD}/${packageName}/package.json`;
   await jsonfile.writeFile(TARGET_PATH, template, {
     spaces: 2,
   });
