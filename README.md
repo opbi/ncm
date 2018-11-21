@@ -3,7 +3,7 @@
 </p>
 
 <h3 align="center">ncm</h3>
-<p align="center">node config manager - create and update dotfiles made easy</p>
+<p align="center" style="margin-bottom: 2em;">node config manager - create and update dotfiles made easy</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/ncm">
