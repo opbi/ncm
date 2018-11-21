@@ -33,7 +33,7 @@
 </p>
 
 <h3 align="center">ncm</h3>
-<p align="center">manage the lifecyle of node packages made easy</p>
+<p align="center">node config manager - create and update dotfiles made easy</p>
 
 ---
 
