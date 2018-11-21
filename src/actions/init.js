@@ -3,22 +3,38 @@ import jsonfile from 'jsonfile';
 import inquirer from 'inquirer';
 
 import { mkdir } from 'lib/fs';
-import { PACKAGE_TYPES, CWD, DOTFILES_FOLDER } from 'constants';
+import { PACKAGE_TYPES, COMPONENT_ENVS, CWD, DOTFILES_FOLDER } from 'constants';
 
 export const generatePackageJson = async ({
   packageType,
+  componentEnv,
+  packagePublic,
   packageName,
-  organisationName,
+  organisationID,
+  npmScope,
   authorDetail,
 }) => {
   const TEMPLATE_PATH = `${DOTFILES_FOLDER}/${packageType}/package.json`;
   const template = await jsonfile.readFile(TEMPLATE_PATH);
 
-  template.name = `@${organisationName}/${packageName}`;
-  template.repository = template.repository
-    .replace('<package-name>', packageName)
-    .replace('<organisation>', organisationName);
+  template.name = `@${npmScope}/${packageName}`;
+  template.repository = `git@github.com:${organisationID}/${packageName}.git`;
   template.author = authorDetail;
+
+  if (packagePublic) {
+    // make it compatible with semantic-release
+    delete template.private;
+    template.publishConfig = {
+      access: 'public',
+    };
+  }
+
+  if (componentEnv === 'cli') {
+    delete template.main;
+    template.bin = {
+      [packageName]: 'dist/index.js',
+    };
+  }
 
   const TARGET_PATH = `${CWD}/${packageName}/pacakge.json`;
   await jsonfile.writeFile(TARGET_PATH, template, {
@@ -42,8 +58,22 @@ const questions = [
   {
     type: 'list',
     name: 'packageType',
-    message: 'Choose the type of the package:',
+    message: 'Which type of package do you want to create?',
     choices: PACKAGE_TYPES,
+  },
+  {
+    type: 'list',
+    name: 'componentEnv',
+    message: 'Where the component will be used?',
+    choices: COMPONENT_ENVS,
+    when: ({ packageType }) => packageType === 'component',
+  },
+  {
+    type: 'confirm',
+    name: 'packagePublic',
+    message: 'Is the component to be published?',
+    default: true,
+    when: ({ packageType }) => packageType === 'component',
   },
   {
     type: 'input',
@@ -52,8 +82,15 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'organisationName',
+    name: 'organisationID',
     message: 'Enter the github id of the organisation:',
+  },
+  {
+    type: 'input',
+    name: 'npmScope',
+    message: 'Enter the organisation scope name in npm:',
+    default: ({ organisationID }) => organisationID,
+    when: ({ packagePublic }) => packagePublic,
   },
   {
     type: 'input',
@@ -67,13 +104,24 @@ export default () =>
   inquirer
     .prompt(questions)
     .then(
-      async ({ packageType, packageName, organisationName, authorDetail }) => {
+      async ({
+        packageType,
+        componentEnv,
+        packagePublic,
+        packageName,
+        organisationID,
+        npmScope,
+        authorDetail,
+      }) => {
         await mkdir(`${CWD}/${packageName}`);
         await mkdir(`${CWD}/${packageName}/src`);
         await generatePackageJson({
           packageType,
+          componentEnv,
+          packagePublic,
           packageName,
-          organisationName,
+          organisationID,
+          npmScope,
           authorDetail,
         });
         await copyConfigFiles({ packageType, packageName });
