@@ -1,6 +1,9 @@
 <p align="center">
-  <img alt="{{packageName}}" src="https://raw.githubusercontent.com/{{organisationID}}/logo/master/{{packageName}}/{{packageName}}.svg?sanitize=true" width="160">
+  <img alt="{{packageName}}" src="https://raw.githubusercontent.com/{{organisationID}}/logo/master/{{packageName}}/{{packageName}}.svg?sanitize=true" width="160" onerror="this.style.display='none'">
 </p>
+
+<h3 align="center">{{packageName}}</h3>
+<p align="center">{{packageDescription}}</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/{{npmScope}}/{{packageName}}">
@@ -32,4 +35,4 @@
   </a>
 </p>
 
-<h3 align="center">{{packageDescription}}</h3>
+---
