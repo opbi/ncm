@@ -1,11 +1,15 @@
+## CONFIG
 export PATH := ./node_modules/.bin:$(PATH)
 SHELL := /bin/bash
 
+## VARIABLES
+
+## COMMANDS
 install:
 	@yarn
 
 cleanup:
-	@rm -rf node_modules dist coverage *.log
+	@rm -rf dist coverage node_modules  *.log
 
 build:
 	@echo 'Building…'
