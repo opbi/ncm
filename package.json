@@ -1,5 +1,5 @@
 {
-  "name": "@opbi/ncm",
+  "name": "ncm",
   "repository": "git@github.com:opbi/ncm.git",
   "author": "OPBI <engineering@opbi.org>",
   "license": "MIT",
