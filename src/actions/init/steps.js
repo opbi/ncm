@@ -2,12 +2,15 @@ import cpy from 'cpy';
 import jsonfile from 'jsonfile';
 import replace from 'replace-in-file';
 
-import { mkdir } from 'lib/fs';
+import { mkdir, writeFile } from 'lib/fs';
+import { exec } from 'lib/child-process';
 import { CWD, DOTFILES_FOLDER } from 'constants';
 
 export const createDir = async ({ packageName }) => {
-  await mkdir(`${CWD}/${packageName}`);
-  await mkdir(`${CWD}/${packageName}/src`);
+  const PACKAGE_DIR = `${CWD}/${packageName}`;
+  await mkdir(PACKAGE_DIR);
+  await mkdir(`${PACKAGE_DIR}/src`);
+  await writeFile(`${PACKAGE_DIR}/src/index.js`, '');
 };
 
 export const generatePackageJson = async ({
@@ -65,3 +68,6 @@ export const updateReadme = async ({ packageName, organisationID, npmScope }) =>
     from: [/{{packageName}}/g, /{{organisationID}}/g, /{{npmScope}}/g],
     to: [packageName, organisationID, npmScope],
   });
+
+export const initGit = async ({ packageName }) =>
+  exec(`git init -q ${CWD}/${packageName}`);

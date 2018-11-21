@@ -80,6 +80,7 @@ export default () =>
           organisationID,
           npmScope,
         });
+        await steps.initGit({ packageName });
         console.log(`created new [${packageType}] package ./${packageName}`);
       },
     );
