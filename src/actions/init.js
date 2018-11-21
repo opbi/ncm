@@ -1,6 +1,7 @@
 import cpy from 'cpy';
 import jsonfile from 'jsonfile';
 import inquirer from 'inquirer';
+import replace from 'replace-in-file';
 
 import { mkdir } from 'lib/fs';
 import { PACKAGE_TYPES, COMPONENT_ENVS, CWD, DOTFILES_FOLDER } from 'constants';
@@ -54,6 +55,13 @@ export const copyConfigFiles = async ({ packageType, packageName }) =>
     `./${packageName}`,
   );
 
+export const updateReadme = async ({ packageName, organisationID, npmScope }) =>
+  replace({
+    files: `${CWD}/${packageName}/README.md`,
+    from: [/{{packageName}}/g, /{{organisationID}}/g, /{{npmScope}}/g],
+    to: [packageName, organisationID, npmScope],
+  });
+
 const questions = [
   {
     type: 'list',
@@ -71,7 +79,7 @@ const questions = [
   {
     type: 'confirm',
     name: 'packagePublic',
-    message: 'Is the component to be published?',
+    message: 'Is the component to be public?',
     default: true,
     when: ({ packageType }) => packageType === 'component',
   },
@@ -125,6 +133,12 @@ export default () =>
           authorDetail,
         });
         await copyConfigFiles({ packageType, packageName });
+        await updateReadme({
+          packageType,
+          packageName,
+          organisationID,
+          npmScope,
+        });
         console.log(`created new [${packageType}] package ./${packageName}`);
       },
     );
