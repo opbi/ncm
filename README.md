@@ -55,30 +55,30 @@ With the growing amount of toolings and ci services we need to use to create a p
 yarn add @opbi/ncm -D
 ```
 
-#### create a new package
+#### Create New Package
 
 ```shell
 ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
 ```
 
 
-#### setup online services
+#### Setup Services
 ```
 cd <package-dir>
 ncm setup # it will create github repo, setup .travis pipeline, setup coveralls, scrutinizer, etc..
 ```
 
-#### update dotfiles
+#### Update Config Files
 ```shell
 ncm dotfiles # it will update the common configs according to the latest template
 ```
 
-#### get development secrets
+#### Fetch Development Secrets
 ```shell
-ncm dotenv -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
+ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
 ```
 
-#### configuration override (not supported yet)
+#### Repo Specific Config [TODO]
 `ncm` use [cosmiconfig](https://github.com/davidtheclark/cosmiconfig), and we recommend you to use `.ncmrc.yml` to make repo specific configuration to overwrite certain rules in the common dotfiles from the template. `ncm` will pick up the settings and inject them into the config files based on dotfiles from template.
 
 For example, if you want to use a specific babel-plugin that is not included in the template, then you can add the devDependency, and set `.ncmrc.yml` like the following, `ncm` will then pick up the `settings.babel` and merge it into `.babelrc`, the structure of `settings.babel` would be exactly the same as `.babelrc`, except that it more yamlful.
@@ -92,6 +92,12 @@ settings:
       - @babel/plugin-of-your-choice
 ```
 
+#### Setup Your Own Config Templates [TODO]
+```yml
+---
+type: component
+template: github/<orgnisation>/ncm-config-template
+```
 
 ### Inspiration
 * [helm](https://github.com/helm/helm)
