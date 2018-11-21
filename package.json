@@ -1,5 +1,6 @@
 {
   "name": "@opbi/ncm",
+  "description": "node config manager - create and update dotfiles made easy",
   "repository": "git@github.com:opbi/ncm.git",
   "author": "OPBI <engineering@opbi.org>",
   "license": "MIT",
