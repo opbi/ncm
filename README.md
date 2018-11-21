@@ -60,7 +60,7 @@ yarn add @opbi/ncm -D
 ```shell
 ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
 cd <package-dir>
-git init
+make install
 ncm setup # it will create github repo, setup .travis pipeline, setup coveralls, scrutinizer, etc..
 ```
 
