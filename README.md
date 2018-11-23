@@ -45,7 +45,7 @@ With the growing amount of toolings and ci services we need to use to create a p
 
 #### Best-Practices In Code
 
-`ncm` is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following [@opbi/principles](https://github.com/opbi/principles).
+`ncm` is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following [@opbi/principles](https://github.com/opbi/opbi#principles).
 
 
 ### How to Use
