@@ -9,8 +9,8 @@
   <a href="https://www.npmjs.com/package/@opbi/ncm">
     <img alt="npm" src="https://img.shields.io/npm/v/@opbi/ncm.svg">
   </a>
-  <a href="https://travis-ci.org/opbi/ncm">
-    <img alt="Travis" src="https://img.shields.io/travis/opbi/ncm/master.svg">
+  <a href="https://circleci.com/gh/opbi/workflows/ncm">
+    <img alt="Travis" src="https://img.shields.io/circleci/project/github/opbi/ncm/master.svg">
   </a>
   <a href="https://coveralls.io/github/opbi/ncm?branch=master">
     <img alt="Coveralls" src="https://img.shields.io/coveralls/github/opbi/ncm/master.svg">
