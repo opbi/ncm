@@ -1,0 +1,51 @@
+---
+version: 2
+
+references:
+  container-config-node8: &container-config-node8
+    docker:
+      - image: circleci/node:8
+  restore-deps-cache: &restore-deps-cache
+    restore_cache:
+      keys:
+        - yarn-packages-{{ checksum "yarn.lock" }}
+
+jobs:
+  install:
+    <<: *container-config-node8
+    steps:
+      - checkout
+      - *restore-deps-cache
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+            - node_modules
+  test:
+    <<: *container-config-node8
+    steps:
+      - checkout
+      - *restore-deps-cache
+      - run: make install test-coverage
+      - run: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+  release:
+    <<: *container-config-node8
+    steps:
+      - checkout
+      - *restore-deps-cache
+      - run: make install build release
+
+workflows:
+  version: 2
+  test-and-release:
+    jobs:
+      - test
+      - release:
+          requires: test
+        filters:
+          branches:
+            only: master
