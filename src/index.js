@@ -3,6 +3,7 @@
 import cli from 'commander';
 
 import initAction from 'actions/init';
+import setupAction from 'actions/setup';
 import dotfilesAction from 'actions/dotfiles';
 import dotenvAction from 'actions/dotenv';
 
@@ -14,6 +15,11 @@ cli
   .command('init')
   .description('create a new package with preset configs')
   .action(initAction);
+
+cli
+  .command('setup')
+  .description('setup configured vcs and ci services')
+  .action(setupAction);
 
 cli
   .command('dotfiles')
