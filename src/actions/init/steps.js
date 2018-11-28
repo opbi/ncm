@@ -1,8 +1,9 @@
 import cpy from 'cpy';
 import jsonfile from 'jsonfile';
 import replace from 'replace-in-file';
+import yaml from 'write-yaml';
 
-import { mkdir, writeFile } from 'lib/fs';
+import { mkdir, readFile, writeFile } from 'lib/fs';
 import { exec } from 'lib/child-process';
 import { CWD, DOTFILES_FOLDER } from 'constants';
 
@@ -11,6 +12,52 @@ export const createDir = async ({ packageName }) => {
   await mkdir(PACKAGE_DIR);
   await mkdir(`${PACKAGE_DIR}/src`);
   await writeFile(`${PACKAGE_DIR}/src/index.js`, '');
+};
+
+export const createNcmrc = async ({
+  packageType,
+  componentEnv,
+  packagePublic,
+  packageName,
+  organisationGithub,
+  organisationNpm,
+  contactEmail,
+}) => {
+  const template = {
+    language: {
+      type: 'node',
+      version: 8,
+    },
+    package: {
+      type: packageType,
+      name: packageName,
+      description: '',
+      keywords: '',
+      private: !packagePublic,
+    },
+    ...(packageType === 'component'
+      ? { component: { environment: componentEnv } }
+      : {}),
+    owner: {
+      github: organisationGithub,
+      team: '',
+      author: '',
+      email: contactEmail,
+      npm: organisationNpm,
+    },
+  };
+  console.log(template);
+  const NCMRC_PATH = `${CWD}/${packageName}/.ncmrc.yml`;
+  yaml.sync(NCMRC_PATH, template, {
+    safe: true,
+  });
+};
+
+export const addCommentsToNcmrc = async ({ packageName }) => {
+  const NCMRC_PATH = `${CWD}/${packageName}/.ncmrc.yml`;
+  const template = await readFile(NCMRC_PATH);
+  const updated = `## created by @opbi/ncm\n---\n${template}`;
+  await writeFile(NCMRC_PATH, updated);
 };
 
 export const generatePackageJson = async ({

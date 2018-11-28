@@ -22,7 +22,7 @@ const questions = [
     type: 'confirm',
     name: 'packagePublic',
     message: 'Is the component to be public?',
-    default: true,
+    default: ({ packageType }) => packageType === 'component',
     when: ({ packageType }) => packageType === 'component',
   },
   {
@@ -32,20 +32,21 @@ const questions = [
   },
   {
     type: 'input',
-    name: 'organisationID',
-    message: 'Enter the github id of the organisation:',
+    name: 'organisationGithub',
+    message: 'Enter the organisation GitHub id:',
   },
   {
     type: 'input',
-    name: 'npmScope',
-    message: 'Enter the organisation scope name in npm:',
-    default: ({ organisationID }) => organisationID,
-    when: ({ packagePublic }) => packagePublic,
+    name: 'organisationNpm',
+    message: 'Enter the organisation npm scope name:',
+    default: ({ organisationGithub }) => organisationGithub,
+    when: ({ packageType, packagePublic }) =>
+      packageType === 'component' && packagePublic,
   },
   {
     type: 'input',
-    name: 'authorDetail',
-    message: 'enter the name <contact-email> of the package',
+    name: 'contactEmail',
+    message: 'enter email of the primary maintainer:',
     // TODO: add validation function
   },
 ];
@@ -59,28 +60,23 @@ export default () =>
         componentEnv,
         packagePublic,
         packageName,
-        organisationID,
-        npmScope,
-        authorDetail,
+        organisationGithub,
+        organisationNpm,
+        contactEmail,
       }) => {
-        await steps.createDir({ packageName });
-        await steps.generatePackageJson({
+        await steps.createNcmrc({
           packageType,
           componentEnv,
           packagePublic,
           packageName,
-          organisationID,
-          npmScope,
-          authorDetail,
+          organisationGithub,
+          organisationNpm,
+          contactEmail,
         });
-        await steps.copyConfigFiles({ packageType, packageName });
-        await steps.updateReadme({
-          packageType,
-          packageName,
-          organisationID,
-          npmScope,
-        });
+        await steps.addCommentsToNcmrc({ packageName });
         await steps.initGit({ packageName });
-        console.log(`created new [${packageType}] package ./${packageName}`);
+        console.log(
+          `created new [${packageType}]: ./${packageName}\ncheck .ncmrc.yml and run 'ncm setup'`,
+        );
       },
     );
