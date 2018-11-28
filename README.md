@@ -98,6 +98,8 @@ template: github/<orgnisation>/ncm-config-template
 ### Inspiration
 * [helm](https://github.com/helm/helm)
 * [mrm](https://github.com/sapegin/mrm)
+* [kyt](https://github.com/NYTimes/kyt/)
+* [yarn](https://github.com/yarnpkg/yarn)
 
 ### License 
 [MIT](License)
