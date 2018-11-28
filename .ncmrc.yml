@@ -1,2 +1,20 @@
+## created by @opbi/ncm
 ---
-type: component
+package:
+  type: component
+  template: opbi/ncm
+  name: ncm
+  description: node config manager - create and update dotfiles made easy
+  keywords: automation, dotfiles, dotenv, node, cli
+  private: false
+component:
+  environment: cli
+language:
+  type: node
+  versoin: 8
+owner:
+  npm: opbi
+  github: opbi
+  team: product
+  name: OPBI
+  email: engineering@opbi.org
