@@ -60,22 +60,29 @@ yarn add @opbi/ncm -D
 ```shell
 ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
 cd <package-dir>
-make install
-ncm setup # it will create github repo, setup .travis pipeline, setup coveralls, scrutinizer, etc..
+ncm setup # it will create github repo, setup CI build and code quality pipeline, etc.
 ```
 
 #### Update Config Files
 ```shell
-ncm dotfiles # it will update the common configs according to the latest template
+ncm update dotfiles # it will replace the dotfiles with latest ones from the template
 ```
 
-#### Fetch Development Secrets
+#### Fetch Dotenv Secrets
 ```shell
 ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
 ```
 
+#### Use Custom Repo as Templates
+```yml
+---
+package:
+  type: component
+  template: <orgnisation>/<repo>  # add the github repo as package.template
+```
+
 #### Repo Specific Config [TODO]
-`ncm` use [cosmiconfig](https://github.com/davidtheclark/cosmiconfig), and we recommend you to use `.ncmrc.yml` to make repo specific configuration to overwrite certain rules in the common dotfiles from the template. `ncm` will pick up the settings and inject them into the config files based on dotfiles from template.
+Add repo specific configuration to `.ncmrc.yml` to overwrite certain rules in the common dotfiles from the template. `ncm` will pick up the settings and inject them into the config files based on dotfiles from template.
 
 For example, if you want to use a specific babel-plugin that is not included in the template, then you can add the devDependency, and set `.ncmrc.yml` like the following, `ncm` will then pick up the `settings.babel` and merge it into `.babelrc`, the structure of `settings.babel` would be exactly the same as `.babelrc`, except that it more yamlful.
 
@@ -88,11 +95,14 @@ settings:
       - @babel/plugin-of-your-choice
 ```
 
-#### Setup Your Own Config Templates [TODO]
-```yml
----
-type: component
-template: github/<orgnisation>/ncm-config-template
+#### Rename A Package [TODO]
+```
+ncm update name # this would rename the dir, GitHub Repo, package.json, deployment service, etc.
+```
+
+#### Archive A Package [TODO]
+```shell
+ncm archive # this will archive the repo, teardown all services, deprecate component/service/app
 ```
 
 ### Inspiration
