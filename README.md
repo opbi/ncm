@@ -3,7 +3,7 @@
 </p>
 
 <h3 align="center">ncm</h3>
-<p align="center" style="margin-bottom: 2em;">node config manager - create and update dotfiles made easy</p>
+<p align="center" style="margin-bottom: 2em;">node config manager - cross-project config file consistency made easy</p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/@opbi/ncm">
@@ -55,12 +55,25 @@ With the growing amount of toolings and ci services we need to use to create a p
 yarn add @opbi/ncm -D
 ```
 
-#### Create New Package
+#### Setup New Project
 
 ```shell
 ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
-cd <package-dir>
-ncm setup # it will create github repo, setup CI build and code quality pipeline, etc.
+# check .ncmrc.yml, add more details if necessary
+ncm setup # it will create dotfiles based on preset and custom config as well as create GitHub repo
+make install
+# all set, start development 🎉
+```
+Currently it needs manual clicks to setup project in CI and code quality reports, this can be automated by running a worker triggered by GitHub hook.
+
+#### Use Custom Template Repo
+By default, `ncm` uses ncm-preset-[component.type] as the config file template, which is a repo that is constantly being updated and tested to maintain fresh high-quality build config standards. In case you prefer use your own preset, you just need to add your Github repo to `.ncmrc.yml` under `component.template`.
+
+```yml
+---
+component:
+  type: package # [package, service, app, job]
+  template: opbi/ncm-preset-package  # default to this repo for [package]
 ```
 
 #### Update Config Files
@@ -71,14 +84,6 @@ ncm update dotfiles # it will replace the dotfiles with latest ones from the tem
 #### Fetch Dotenv Secrets
 ```shell
 ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
-```
-
-#### Use Custom Repo as Templates
-```yml
----
-package:
-  type: component
-  template: <orgnisation>/<repo>  # add the github repo as package.template
 ```
 
 #### Repo Specific Config [TODO]
