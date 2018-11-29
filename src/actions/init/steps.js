@@ -44,3 +44,6 @@ export const addCommentsToNcmrc = async ({ componentName }) => {
 
 export const initGit = async ({ componentName }) =>
   exec(`git init -q ./${componentName}`);
+
+export const cdToComponentDir = async ({ componentName }) =>
+  exec(`cd ./${componentName}`);

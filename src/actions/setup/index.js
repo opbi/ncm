@@ -11,9 +11,12 @@ export default async () => {
 
   await steps.updatePackageJson(config);
 
-  // await steps.generateReadme(config);
+  await steps.generateReadme(config);
 
   await steps.createGithubRepo(config);
   console.log(`GitHub repo created`);
-  // await steps.addGitRemoteOrigin(config);
+
+  await steps.addGitRemoteOrigin(config);
+
+  await steps.commitAndPushToGitHub();
 };

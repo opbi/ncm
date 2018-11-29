@@ -12,11 +12,10 @@ const configPackageJsonFromTemplate = (config, template) => {
     output.author = `${config.owner.name} <${config.owner.email}>`;
 
     if (!config.component.private) {
-      // make it compatible with semantic-release
-      output.license = config.package.license || 'MIT';
+      output.license = config.package.license || template.license;
       output.publishConfig = {
         access: 'public',
-      };
+      }; // make it compatible with semantic-release
     } else {
       output.private = true;
     }

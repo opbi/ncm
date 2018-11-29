@@ -69,7 +69,8 @@ export default () =>
     const { componentType, componentName } = answers;
     await steps.addCommentsToNcmrc({ componentName });
     await steps.initGit({ componentName });
+    await steps.cdToComponentDir({ componentName });
     console.log(
-      `created new [${componentType}]: ./${componentName}\ncheck .ncmrc.yml and run 'ncm setup'`,
+      `created new [${componentType}]: ${componentName}\ncheck .ncmrc.yml and run 'ncm setup'`,
     );
   });
