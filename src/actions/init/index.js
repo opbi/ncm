@@ -1,82 +1,75 @@
 import inquirer from 'inquirer';
 
-import { PACKAGE_TYPES, COMPONENT_ENVS } from 'constants';
-
+import { COMPONENT_TYPES, PACKAGE_ENVIRONMENTS, OWNER_TYPES } from 'constants';
 import * as steps from './steps';
 
-const questions = [
+const componentQuestions = [
   {
     type: 'list',
-    name: 'packageType',
-    message: 'Which type of package do you want to create?',
-    choices: PACKAGE_TYPES,
+    name: 'componentType',
+    message: 'Which type of component do you want to create?',
+    choices: COMPONENT_TYPES,
   },
   {
     type: 'list',
-    name: 'componentEnv',
-    message: 'Where the component will be used?',
-    choices: COMPONENT_ENVS,
-    when: ({ packageType }) => packageType === 'component',
+    name: 'packageEnvironment',
+    message: 'Where will the package be used?',
+    choices: PACKAGE_ENVIRONMENTS,
+    when: ({ componentType }) => componentType === 'package',
   },
   {
     type: 'confirm',
-    name: 'packagePublic',
-    message: 'Is the component to be public?',
-    default: ({ packageType }) => packageType === 'component',
-    when: ({ packageType }) => packageType === 'component',
+    name: 'componentPublic',
+    message: 'Is the package to be public?',
+    default: ({ componentType }) => componentType === 'package',
+    when: ({ componentType }) => componentType === 'package',
   },
   {
     type: 'input',
-    name: 'packageName',
-    message: 'Enter the name of the package:',
+    name: 'componentName',
+    message: ({ componentType }) => `Enter the name of the ${componentType}:`,
+    // TODO: offer hooks to add naming convention validation as plugin
+  },
+];
+
+const ownerQuestions = [
+  {
+    type: 'list',
+    name: 'ownerType',
+    message: 'Which is the type of the owner?',
+    choices: OWNER_TYPES,
   },
   {
     type: 'input',
-    name: 'organisationGithub',
-    message: 'Enter the organisation GitHub id:',
+    name: 'ownerGithub',
+    message: ({ ownerType }) => `Enter the owner [${ownerType}] GitHub id:`,
   },
   {
     type: 'input',
-    name: 'organisationNpm',
-    message: 'Enter the organisation npm scope name:',
-    default: ({ organisationGithub }) => organisationGithub,
-    when: ({ packageType, packagePublic }) =>
-      packageType === 'component' && packagePublic,
+    name: 'packageNpmScope',
+    message: 'What is the npm scope name for the package?',
+    default: ({ ownerType, ownerGithub }) =>
+      ownerType === 'organisation' ? ownerGithub : undefined,
+    when: ({ componentType, componentPublic }) =>
+      componentType === 'package' && componentPublic,
   },
   {
     type: 'input',
-    name: 'contactEmail',
-    message: 'enter email of the primary maintainer:',
+    name: 'ownerEmail',
+    message: 'Please enter the email of the primary maintainer:',
     // TODO: add validation function
   },
 ];
 
+const questions = [...componentQuestions, ...ownerQuestions];
+
 export default () =>
-  inquirer
-    .prompt(questions)
-    .then(
-      async ({
-        packageType,
-        componentEnv,
-        packagePublic,
-        packageName,
-        organisationGithub,
-        organisationNpm,
-        contactEmail,
-      }) => {
-        await steps.createNcmrc({
-          packageType,
-          componentEnv,
-          packagePublic,
-          packageName,
-          organisationGithub,
-          organisationNpm,
-          contactEmail,
-        });
-        await steps.addCommentsToNcmrc({ packageName });
-        await steps.initGit({ packageName });
-        console.log(
-          `created new [${packageType}]: ./${packageName}\ncheck .ncmrc.yml and run 'ncm setup'`,
-        );
-      },
+  inquirer.prompt(questions).then(async answers => {
+    await steps.createNcmrc(answers);
+    const { componentType, componentName } = answers;
+    await steps.addCommentsToNcmrc({ componentName });
+    await steps.initGit({ componentName });
+    console.log(
+      `created new [${componentType}]: ./${componentName}\ncheck .ncmrc.yml and run 'ncm setup'`,
     );
+  });

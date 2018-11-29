@@ -17,8 +17,8 @@ export const readConfig = async () => {
 };
 
 export const cloneTemplateRepo = async config => {
-  const DEFAULT_TEMPLATE = `opbi/ncm-template-${config.package.type}`;
-  const template = config.package.template || DEFAULT_TEMPLATE;
+  const DEFAULT_TEMPLATE = `opbi/ncm-art-${config.component.type}`;
+  const template = config.component.template || DEFAULT_TEMPLATE;
   await exec(`rm -rf .template`);
   await exec(`git clone git@github.com:${template}.git .template`);
 };
@@ -33,7 +33,7 @@ export const copyTemplateFiles = async () => {
     '.',
   );
   await exec('cp -r .template/src .');
-  await exec('cp -r .template/.circle .');
+  await exec('cp -r .template/.circleci .');
 };
 
 export const removeTemplateDir = async () => exec('rm -rf .template');
@@ -59,19 +59,21 @@ export const updatePackageJson = async config => {
 //   });
 
 export const createGithubRepo = async config => {
-  const github = await setupGithubClient();
+  const authRequired =
+    config.owner.type === 'organisation' || config.component.private;
+  const github = await setupGithubClient({ authRequired });
   await github.repos.createInOrg({
     org: config.owner.github,
-    name: config.package.name,
-    description: config.package.description,
-    private: config.package.private,
+    name: config.component.name,
+    description: config.component.description,
+    private: config.component.private,
   });
 };
 
 export const addGitRemoteOrigin = async config =>
   exec(
     `git add remote origin git@git@github.com:${config.owner.github}/${
-      config.package.name
+      config.component.name
     }`,
   );
 

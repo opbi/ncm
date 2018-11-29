@@ -14,6 +14,6 @@ export default async () => {
   // await steps.generateReadme(config);
 
   await steps.createGithubRepo(config);
-
-  await steps.addGitRemoteOrigin(config);
+  console.log(`GitHub repo created`);
+  // await steps.addGitRemoteOrigin(config);
 };

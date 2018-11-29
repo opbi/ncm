@@ -27,6 +27,7 @@ export const updateDevDependencies = async (target, type) => {
   });
 };
 
+// TODO: to be refactored
 export const copyConfigFiles = async type =>
   cpy(
     [

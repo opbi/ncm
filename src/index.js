@@ -13,12 +13,12 @@ cli.version(packageJson.version, '-v, --version');
 
 cli
   .command('init')
-  .description('create a new package with preset configs')
+  .description('create the ncm specs of a new component')
   .action(initAction);
 
 cli
   .command('setup')
-  .description('setup configured vcs and ci services')
+  .description('setup the new component according to .ncmrc.yml')
   .action(setupAction);
 
 cli
@@ -26,7 +26,7 @@ cli
   .alias('dotfile')
   .alias('config')
   .alias('.config')
-  .description('get preset dotfiles of package type specified in ncm config')
+  .description('generate dotfiles based on template and specs in .ncmrc.yml')
   .action(dotfilesAction);
 
 cli
