@@ -1,9 +1,9 @@
 ---
 checks:
-    javascript: true
+  javascript: true
 build:
-    nodes:
-        analysis:
-            environment:
-                node:
-                    version: 8.10.0
+  nodes:
+    analysis:
+      environment:
+        node:
+          version: 8.10.0

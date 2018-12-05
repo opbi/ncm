@@ -13,6 +13,7 @@ dist/
 .serverless
 .webpack
 .build
+*_book
 
 # dot files
 .DS_Store

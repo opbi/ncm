@@ -9,12 +9,16 @@ install:
 	@yarn
 
 cleanup:
-	@rm -rf dist coverage node_modules  *.log
+	@rm -rf dist coverage _book flow-typed node_modules  *.log
 
 build:
-	@echo 'Building…'
+	@echo 'building…'
 	@rm -rf dist
 	@babel src -d dist --ignore '**/__tests__/*.js'
+
+flowtype:
+	@echo 'flowtype-check…'
+	@flow check
 
 lint:
 	@echo 'linting…'
@@ -32,6 +36,10 @@ test-watch:
 
 test-coverage:
 	@jest --coverage
+
+book:
+	@rm -rf _book
+	@gitbook serve
 
 commit:
 	@commit

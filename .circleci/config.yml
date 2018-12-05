@@ -9,7 +9,12 @@ references:
     restore_cache:
       keys:
         - yarn-packages-{{ checksum "yarn.lock" }}
-
+  save-deps-cache: &save-deps-cache
+    save_cache:
+      key: yarn-packages-{{ checksum "yarn.lock" }}
+      paths:
+        - ~/.cache/yarn
+        - node_modules
 jobs:
   install:
     <<: *container-config-node8
@@ -18,32 +23,38 @@ jobs:
       - *restore-deps-cache
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
-            - node_modules
+          command: make install
+      - *save-deps-cache
   test:
     <<: *container-config-node8
     steps:
       - checkout
       - *restore-deps-cache
-      - run: make install test-coverage
-      - run: cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js
+      - run:
+          name: Install Dependencies and Run Test Coverage
+          command: make install test-coverage
+      - *save-deps-cache
+      - run: npx coveralls < coverage/lcov.info
   release:
     <<: *container-config-node8
     steps:
       - checkout
       - *restore-deps-cache
-      - run: make install build release
+      - run:
+          name: Build Package and Semantic-Release
+          command: make install build release
+      - run:
+          name: Update Doc GitHub Page
+          command: sh .circleci/update-github-page.sh
 
 workflows:
   version: 2
   test-and-release:
     jobs:
-      - test
+      - test:
+          filters:
+            branches:
+              ignore: gh-pages
       - release:
           requires:
             - test

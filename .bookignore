@@ -1,0 +1,13 @@
+# gitbook would first read .gitignore
+
+# ignore everything
+.*
+*
+
+# only include
+!.circleci/
+!docs/
+!book.json
+!README.md
+!SUMMARY.md
+!API.md

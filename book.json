@@ -1,0 +1,19 @@
+{
+  "gitbook": "3.2.2",
+  "title": "ncm-preset-package",
+  "plugins": ["edit-link", "prism", "-highlight", "github"],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/opbi/ncm-preset-package/tree/master",
+      "label": "Edit This Page"
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-tomorrow.css"
+      ]
+    },
+    "github": {
+      "url": "https://github.com/opbi/ncm-preset-package/"
+    }
+  }
+}
