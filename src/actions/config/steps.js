@@ -3,8 +3,8 @@ import jsonfile from 'jsonfile';
 import { exec } from 'lib/child-process';
 import { sortObjectByKeys } from 'lib/util';
 
-/*
-  copy only config files
+/**
+ *  Copy only config files.
  */
 export const copyConfigFiles = async () => {
   await cpy(
@@ -22,7 +22,7 @@ export const copyConfigFiles = async () => {
 };
 
 /**
- * merge devDependencies and optionalDependencies from template package.json
+ * Merge devDependencies and optionalDependencies from template package.json.
  */
 export const updatePackageJson = async () => {
   const template = await jsonfile.readFile('.template/package.json');

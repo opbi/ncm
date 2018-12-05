@@ -5,7 +5,7 @@ import cli from 'commander';
 import initAction from 'actions/init';
 import setupAction from 'actions/setup';
 import configAction from 'actions/config';
-import dotenvAction from 'actions/dotenv';
+import secretAction from 'actions/secret';
 
 import packageJson from '../package';
 
@@ -30,15 +30,13 @@ cli
   .action(configAction);
 
 cli
-  .command('dotenv')
-  .alias('env')
+  .command('secret')
   .alias('.env')
-  .alias('secret')
   .description('write vault dev secrets to .env')
   .option('-s, --scope <scope>', 'path of the secret in vault')
   .option('-e --endpoint [vaultEndpoint]', 'endpoint of the vault server')
   .option('-t, --token [token]', 'vault auth token')
   .option('-a, --auth [method]', 'vault auth method: [token], github')
-  .action(dotenvAction);
+  .action(secretAction);
 
 cli.parse(process.argv);
