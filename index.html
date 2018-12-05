@@ -1,0 +1,320 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Introduction · ncm-preset-package</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-prism/prism-tomorrow.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter active" data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <p align="center">
+  <img alt="ncm" src="https://raw.githubusercontent.com/opbi/logo/master/ncm/ncm.svg?sanitize=true" width="160">
+</p>
+
+<p></p><h3 align="center" id="ncm">ncm</h3><p></p>
+<p align="center" style="margin-bottom: 2em;">node config manager - cross-project config consistency made easy</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@opbi/ncm" target="_blank">
+    <img alt="npm" src="https://img.shields.io/npm/v/@opbi/ncm.svg">
+  </a>
+  <a href="https://circleci.com/gh/opbi/workflows/ncm" target="_blank">
+    <img alt="Travis" src="https://img.shields.io/circleci/project/github/opbi/ncm/master.svg">
+  </a>
+  <a href="https://coveralls.io/github/opbi/ncm?branch=master" target="_blank">
+    <img alt="Coveralls" src="https://img.shields.io/coveralls/github/opbi/ncm/master.svg">
+  </a>
+  <a href="https://github.com/semantic-release/semantic-release" target="_blank">
+    <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://snyk.io/test/github/opbi/ncm" target="_blank">
+    <img alt="Known Vulnerabilities" src="https://snyk.io/test/github/opbi/ncm/badge.svg">
+  </a>
+  <a href="https://david-dm.org/opbi/ncm" target="_blank">
+    <img alt="Dependencies" src="https://img.shields.io/david/opbi/ncm.svg">
+  </a>
+  <a href="https://david-dm.org/opbi/ncm?type=dev" target="_blank">
+    <img alt="devDependencies" src="https://img.shields.io/david/dev/opbi/ncm.svg">
+  </a>
+  <a href="https://scrutinizer-ci.com/g/opbi/ncm/?branch=master" target="_blank">
+    <img alt="Scrutinizer Code Quality" src="https://img.shields.io/scrutinizer/g/opbi/ncm.svg">
+  </a>
+</p>
+
+<hr>
+<h3 id="motivation">Motivation</h3>
+<h4 id="make-micro-services-consistent">Make Micro-Services Consistent</h4>
+<p>With the growing amount of toolings and ci services we need to use to create a production-grade codebase, the difficulty of managing configs across multiple repos is increasing. Tools like <a href="https://github.com/lerna/lerna" target="_blank">lerna</a> is easy to result in a heavy monorepo and doesn&apos;t help to manage apps in different teams, plus a lot of Github integrations are optmised on a repo level. <code>ncm</code> is created to manage packages (components or apps) in separate repos, keeping the repos light-weight for swift development experience, enjoying the benefits of micro-services while not sacarificing build layer consistency.</p>
+<h4 id="best-practices-in-code">Best-Practices In Code</h4>
+<p><code>ncm</code> is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following <a href="https://github.com/opbi/opbi#principles" target="_blank">@opbi/principles</a>.</p>
+<h3 id="how-to-use">How to Use</h3>
+<h4 id="install">Install</h4>
+<pre class="language-"><code class="lang-shell">yarn add @opbi/ncm -D
+</code></pre>
+<h4 id="setup-new-project">Setup New Project</h4>
+<pre class="language-"><code class="lang-shell">ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
+# check .ncmrc.yml, add more details if necessary
+ncm setup # it will create dotfiles based on preset and custom config as well as create GitHub repo
+make install
+# all set, start development &#x1F389;
+</code></pre>
+<p>Currently it needs manual clicks to setup project in CI and code quality reports, this can be automated by running a worker triggered by GitHub hook.</p>
+<h4 id="use-custom-template-repo">Use Custom Template Repo</h4>
+<p>By default, <code>ncm</code> uses ncm-preset-[component.type] as the config file template, which is a repo that is constantly being updated and tested to maintain fresh high-quality build config standards. In case you prefer use your own preset, you just need to add your Github repo to <code>.ncmrc.yml</code> under <code>component.template</code>.</p>
+<pre class="language-"><code class="lang-yml">---
+component:
+  type: package # [package, service, app, job]
+  template: opbi/ncm-preset-package  # default to this repo for [package]
+</code></pre>
+<h4 id="update-config-files">Update Config Files</h4>
+<pre class="language-"><code class="lang-shell">ncm config # it will replace the dotfiles with latest ones from the template
+</code></pre>
+<h4 id="fetch-dotenv-secrets">Fetch Dotenv Secrets</h4>
+<pre class="language-"><code class="lang-shell">ncm .env -s <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>path-of-secrets-in-vault</span><span class="token punctuation">&gt;</span></span> # it will write secrets in vault to .env file
+</code></pre>
+<h4 id="repo-specific-config-todo">Repo Specific Config [TODO]</h4>
+<p>Add repo specific configuration to <code>.ncmrc.yml</code> to overwrite certain rules in the common dotfiles from the template. <code>ncm</code> will pick up the settings and inject them into the config files based on dotfiles from template.</p>
+<p>For example, if you want to use a specific babel-plugin that is not included in the template, then you can add the devDependency, and set <code>.ncmrc.yml</code> like the following, <code>ncm</code> will then pick up the <code>config.babel</code> and merge it into <code>babel.config.js</code>, the structure of <code>config.babel</code> would be exactly the same as <code>.babelrc</code>, except that it more yamlful.</p>
+<pre class="language-"><code class="lang-yml">---
+component:
+  type: package
+config:
+  babel:
+    plugins:
+      - @babel/plugin-of-your-choice
+  gitbook:
+    disabled: true
+</code></pre>
+<h4 id="rename-a-package-todo">Rename A Package [TODO]</h4>
+<pre class="language-"><code>ncm rename # this would rename the dir, GitHub Repo, package.json, deployment service, etc.
+</code></pre><h4 id="archive-a-package-todo">Archive A Package [TODO]</h4>
+<pre class="language-"><code class="lang-shell">ncm archive # this will archive the repo, teardown all services, deprecate component/service/app
+</code></pre>
+<h3 id="inspiration">Inspiration</h3>
+<ul>
+<li><a href="https://github.com/helm/helm" target="_blank">helm</a></li>
+<li><a href="https://github.com/sapegin/mrm" target="_blank">mrm</a></li>
+<li><a href="https://github.com/NYTimes/kyt/" target="_blank">kyt</a></li>
+<li><a href="https://github.com/yarnpkg/yarn" target="_blank">yarn</a></li>
+</ul>
+<h3 id="license">License</h3>
+<p><a href="License">MIT</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.1","depth":1,"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"edit-link":{"label":"Edit This Page","base":"https://github.com/opbi/ncm-preset-package/tree/master"},"prism":{"css":["prismjs/themes/prism-tomorrow.css"]},"github":{"url":"https://github.com/opbi/ncm-preset-package/"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"ncm-preset-package","gitbook":"3.2.2"},"file":{"path":"README.md","mtime":"2018-12-05T15:56:42.041Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-05T15:57:33.879Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
