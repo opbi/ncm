@@ -78,7 +78,7 @@ component:
 
 #### Update Config Files
 ```shell
-ncm update dotfiles # it will replace the dotfiles with latest ones from the template
+ncm config # it will replace the dotfiles with latest ones from the template
 ```
 
 #### Fetch Dotenv Secrets
@@ -89,20 +89,23 @@ ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env 
 #### Repo Specific Config [TODO]
 Add repo specific configuration to `.ncmrc.yml` to overwrite certain rules in the common dotfiles from the template. `ncm` will pick up the settings and inject them into the config files based on dotfiles from template.
 
-For example, if you want to use a specific babel-plugin that is not included in the template, then you can add the devDependency, and set `.ncmrc.yml` like the following, `ncm` will then pick up the `settings.babel` and merge it into `.babelrc`, the structure of `settings.babel` would be exactly the same as `.babelrc`, except that it more yamlful.
+For example, if you want to use a specific babel-plugin that is not included in the template, then you can add the devDependency, and set `.ncmrc.yml` like the following, `ncm` will then pick up the `config.babel` and merge it into `babel.config.js`, the structure of `config.babel` would be exactly the same as `.babelrc`, except that it more yamlful.
 
 ```yml
 ---
-type: component
-settings:
+component:
+  type: package
+config:
   babel:
     plugins:
       - @babel/plugin-of-your-choice
+  gitbook:
+    disabled: true
 ```
 
 #### Rename A Package [TODO]
 ```
-ncm update name # this would rename the dir, GitHub Repo, package.json, deployment service, etc.
+ncm rename # this would rename the dir, GitHub Repo, package.json, deployment service, etc.
 ```
 
 #### Archive A Package [TODO]
