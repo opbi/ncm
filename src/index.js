@@ -4,7 +4,7 @@ import cli from 'commander';
 
 import initAction from 'actions/init';
 import setupAction from 'actions/setup';
-import dotfilesAction from 'actions/dotfiles';
+import configAction from 'actions/config';
 import dotenvAction from 'actions/dotenv';
 
 import packageJson from '../package';
@@ -22,17 +22,18 @@ cli
   .action(setupAction);
 
 cli
-  .command('dotfiles')
-  .alias('dotfile')
-  .alias('config')
-  .alias('.config')
-  .description('generate dotfiles based on template and specs in .ncmrc.yml')
-  .action(dotfilesAction);
+  .command('config')
+  .option('-e, --environment [envID]', 'dev, ci')
+  .description(
+    'generate config files based on template and specs in .ncmrc.yml',
+  )
+  .action(configAction);
 
 cli
   .command('dotenv')
   .alias('env')
   .alias('.env')
+  .alias('secret')
   .description('write vault dev secrets to .env')
   .option('-s, --scope <scope>', 'path of the secret in vault')
   .option('-e --endpoint [vaultEndpoint]', 'endpoint of the vault server')

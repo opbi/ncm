@@ -1,13 +1,14 @@
+import * as commonSteps from '../common-steps';
 import * as steps from './steps';
 
 export default async () => {
-  const config = await steps.readConfig();
+  const config = await commonSteps.readConfig();
 
-  await steps.cloneTemplateRepo(config);
+  await commonSteps.cloneTemplateRepo(config);
 
   await steps.copyTemplateFiles();
 
-  await steps.removeTemplateDir();
+  await commonSteps.removeTemplateDir();
 
   await steps.updatePackageJson(config);
 

@@ -1,5 +1,4 @@
 import cpy from 'cpy';
-import cosmiconfig from 'cosmiconfig';
 import jsonfile from 'jsonfile';
 import replace from 'replace-in-file';
 
@@ -7,20 +6,6 @@ import { setupGithubClient } from 'lib/github';
 import { exec } from 'lib/child-process';
 
 import configPackageJsonFromTemplate from 'lib/package-json';
-
-// TODO: setup schema and sanitise config file
-export const readConfig = async () => {
-  const MODULE_NAME = 'ncm';
-  const { config } = await cosmiconfig(MODULE_NAME).search();
-  return config;
-};
-
-export const cloneTemplateRepo = async config => {
-  const DEFAULT_TEMPLATE = `opbi/ncm-preset-${config.component.type}`;
-  const template = config.component.template || DEFAULT_TEMPLATE;
-  await exec(`rm -rf .template`);
-  await exec(`git clone git@github.com:${template}.git .template`);
-};
 
 export const copyTemplateFiles = async () => {
   await cpy(
@@ -38,8 +23,6 @@ export const copyTemplateFiles = async () => {
   await exec('cp -r .template/src .');
   await exec('cp -r .template/.circleci .');
 };
-
-export const removeTemplateDir = async () => exec('rm -rf .template');
 
 export const updatePackageJson = async config => {
   const PACKAGE_JSON_PATH = './package.json';
@@ -100,14 +83,4 @@ export const commitAndPushToGitHub = async () => {
   await exec('git push -u origin master');
 };
 
-// export const setupCIPipeline = async config => {};
-
-// export const setupCoveralls = async config => {};
-
-// export const setupScrutinizer = async config => {};
-
-// export const initGitCommit = async () => {};
-
 // export const installDeps = async () => {};
-
-// export const initGitPush = async () => {};
