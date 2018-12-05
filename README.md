@@ -12,6 +12,7 @@
   <a href="https://circleci.com/gh/opbi/workflows/ncm">
     <img alt="Travis" src="https://img.shields.io/circleci/project/github/opbi/ncm/master.svg">
   </a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fopbi%2Fncm?ref=badge_shield" alt="FOSSA Status"><img src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopbi%2Fncm.svg?type=shield"/></a>
   <a href="https://coveralls.io/github/opbi/ncm?branch=master">
     <img alt="Coveralls" src="https://img.shields.io/coveralls/github/opbi/ncm/master.svg">
   </a>
@@ -121,3 +122,6 @@ ncm archive # this will archive the repo, teardown all services, deprecate compo
 
 ### License 
 [MIT](License)
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fopbi%2Fncm.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fopbi%2Fncm?ref=badge_large)
