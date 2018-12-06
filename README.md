@@ -50,11 +50,6 @@ With the growing amount of toolings and ci services we need to use to create a p
 
 `ncm` is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following [@opbi/principles](https://github.com/opbi/opbi#principles).
 
-### Glossary
-
-#### Component
-
-We use `component` to refer to a complete codebase unit that serves a specific function in a micro-service system, which could be in the type of [app, service, job, package, etc.]. For more details, please refer to [@opbi/glossary](https://github.com/opbi/opbi#glossary).
 
 ### How to Use
 
@@ -62,6 +57,11 @@ We use `component` to refer to a complete codebase unit that serves a specific f
 ```shell
 yarn add @opbi/ncm -D
 ```
+
+#### Before We Start
+It assumes that you've `git` installed and setup with SSH keys to clone public and private repo in your scope. 
+
+Also to setup Github repo it requires you to provide a Github Access Token. You can create it on Github Settings page, and it requires repo:private access if you want to create private repo. When you have got the access token, you can store it in MacOS Keychain, and export it to `NCM_GITHUB_ACCESS_TOKEN` in your shell profile.
 
 #### Setup New Component
 
@@ -127,6 +127,13 @@ ncm rename # this would rename the dir, GitHub Repo, package.json, deployment se
 ```shell
 ncm archive # this will archive the repo, teardown all services, deprecate component/service/app
 ```
+
+### Glossary
+
+#### Component
+
+We use `component` to refer to a complete codebase unit that serves a specific function in a micro-service system, which could be in the type of [app, service, job, package, etc.]. For more details, please refer to [@opbi/glossary](https://github.com/opbi/opbi#glossary).
+
 
 ### Inspiration
 * [helm](https://github.com/helm/helm)
