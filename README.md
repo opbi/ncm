@@ -51,6 +51,14 @@ With the growing amount of toolings and ci services we need to use to create a p
 `ncm` is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following [@opbi/principles](https://github.com/opbi/opbi#principles).
 
 
+### Prerequisite
+
+#### Access Tokens
+
+#### Glossary
+
+We use `component` to refer to a complete codebase unit that serves a specific function in a micro-service system, which could be in the type of [app, service, job, package, etc.] and cover the scope of project management, code repo, published/deployed entity and all related service resources. For more details, please refer to [@opbi/glossary](https://github.com/opbi/opbi#glossary).
+
 ### How to Use
 
 #### Install
@@ -58,7 +66,7 @@ With the growing amount of toolings and ci services we need to use to create a p
 yarn add @opbi/ncm -D
 ```
 
-#### Setup New Project
+#### Setup New Component
 
 ```shell
 ncm init  # you will be asked a list of questions like `npm init` or `yarn init`
@@ -89,6 +97,13 @@ ncm config # it will replace the dotfiles with latest ones from the template
 ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
 ```
 
+#### Develop A Component [TODO]
+As `ncm` is created to manage the whole lifecycle of a component in microservice system, workflow automation is included in the scope. Workflow logics over lifecycles of different types of components defined in [@opbi/practices](https://github.com/opbi/opbi#practices) would be materialised as automation in `ncm`. For example, when the following command in a package component, it would move the Trello card to development stage, create a new branch with preset naming convention, open a PR, link the PR to the Trello Card.
+
+```shell
+ncm start #TrelloCard
+```
+
 #### Repo Specific Config [TODO]
 Add repo specific configuration to `.ncmrc.yml` to overwrite certain rules in the common dotfiles from the template. `ncm` will pick up the settings and inject them into the config files based on dotfiles from template.
 
@@ -106,12 +121,12 @@ config:
     disabled: true
 ```
 
-#### Rename A Package [TODO]
+#### Rename A Component [TODO]
 ```
 ncm rename # this would rename the dir, GitHub Repo, package.json, deployment service, etc.
 ```
 
-#### Archive A Package [TODO]
+#### Archive A Component [TODO]
 ```shell
 ncm archive # this will archive the repo, teardown all services, deprecate component/service/app
 ```
