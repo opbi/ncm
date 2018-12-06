@@ -50,14 +50,11 @@ With the growing amount of toolings and ci services we need to use to create a p
 
 `ncm` is built to look after the whole lifecycle of a package (component or app) systematically from creation to development, maintainance and deprecation. We want to make it very easy to create and maintain a production-grade packages. It is built and released following [@opbi/principles](https://github.com/opbi/opbi#principles).
 
+### Glossary
 
-### Prerequisite
+#### Component
 
-#### Access Tokens
-
-#### Glossary
-
-We use `component` to refer to a complete codebase unit that serves a specific function in a micro-service system, which could be in the type of [app, service, job, package, etc.] and cover the scope of project management, code repo, published/deployed entity and all related service resources. For more details, please refer to [@opbi/glossary](https://github.com/opbi/opbi#glossary).
+We use `component` to refer to a complete codebase unit that serves a specific function in a micro-service system, which could be in the type of [app, service, job, package, etc.]. For more details, please refer to [@opbi/glossary](https://github.com/opbi/opbi#glossary).
 
 ### How to Use
 
