@@ -45,7 +45,7 @@
     "eslint-plugin-jsdoc": "^4.0.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint_d": "^7.2.0",
-    "flow-bin": "^0.94.0",
+    "flow-bin": "^0.96.0",
     "gh-pages": "^2.0.1",
     "gitbook-cli": "^2.3.2",
     "gitbook-plugin-edit-link": "^2.0.2",
