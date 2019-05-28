@@ -20,6 +20,7 @@ flowtype:
 	@echo 'flowtype-check…'
 	@flow check
 
+# in case of path errors, `eslint_d restart`
 lint:
 	@echo 'linting…'
 	@eslint_d src
