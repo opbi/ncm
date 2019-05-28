@@ -1,6 +1,11 @@
 import os from 'os';
 
-export const COMPONENT_TYPES = ['package', 'service', 'app(TODO)', 'job(TODO)'];
+export const COMPONENT_TYPES = [
+  'package',
+  'service',
+  'worker(TODO)',
+  'app(TODO)',
+];
 export const PACKAGE_ENVIRONMENTS = [
   'node',
   'cli',

@@ -1,3 +1,6 @@
+/**
+ * Logics of generate package.json as per component type.
+ */
 const configPackageJsonFromTemplate = (config, template) => {
   const output = {};
 
@@ -21,7 +24,7 @@ const configPackageJsonFromTemplate = (config, template) => {
     }
   } else {
     output.name = config.component.name; // only attached to make it easy to distinguish files in development
-    output.private = true;
+    output.private = config.component.private;
   }
 
   // dependencies

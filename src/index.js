@@ -24,6 +24,7 @@ cli
 cli
   .command('config')
   .option('-e, --environment [envID]', 'dev, ci')
+  .option('-t, --target [targetTemplate]', 'repo of config files template')
   .description(
     'generate config files based on template and specs in .ncmrc.yml',
   )
