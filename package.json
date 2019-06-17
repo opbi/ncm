@@ -36,7 +36,7 @@
     "documentation": "^11.0.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-prettier": "^4.3.0",
+    "eslint-config-prettier": "^5.0.0",
     "eslint-config-standard-jsdoc": "^0.3.2",
     "eslint-import-resolver-node": "^0.3.2",
     "eslint-plugin-flowtype": "^3.9.1",
