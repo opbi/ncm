@@ -9,9 +9,7 @@ const configPackageJsonFromTemplate = (config, template) => {
     output.name = `@${config.package.npmScope}/${config.component.name}`;
     output.description = config.component.description;
     output.keywords = config.component.keywords;
-    output.repository = `git@github.com:${config.owner.github}/${
-      config.component.name
-    }.git`; // ASSUME: using GitHub
+    output.repository = `git@github.com:${config.owner.github}/${config.component.name}.git`; // ASSUME: using GitHub
     output.author = `${config.owner.name} <${config.owner.email}>`;
 
     if (!config.component.private) {

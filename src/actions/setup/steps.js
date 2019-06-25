@@ -72,9 +72,7 @@ export const createGithubRepo = async config => {
 
 export const addGitRemoteOrigin = async config =>
   exec(
-    `git remote add origin git@github.com:${config.owner.github}/${
-      config.component.name
-    }.git`,
+    `git remote add origin git@github.com:${config.owner.github}/${config.component.name}.git`,
   );
 
 export const commitAndPushToGitHub = async () => {
