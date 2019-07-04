@@ -1,5 +1,7 @@
 /**
  * Logics of generate package.json as per component type.
+ *
+ * @returns {object} The generated package.json content.
  */
 const configPackageJsonFromTemplate = (config, template) => {
   const output = {};

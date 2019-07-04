@@ -4,7 +4,7 @@ import { exec } from 'lib/child-process';
 import { sortObjectByKeys } from 'lib/util';
 
 /**
- *  Copy only config files.
+ * Copy only config files.
  */
 export const copyConfigFiles = async () => {
   await cpy(
