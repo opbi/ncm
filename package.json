@@ -12,7 +12,7 @@
     "commander": "^2.20.0",
     "cosmiconfig": "^5.2.1",
     "cpy": "^7.3.0",
-    "inquirer": "^6.4.1",
+    "inquirer": "^7.0.0",
     "jsonfile": "^5.0.0",
     "node-vault": "^0.9.10",
     "replace-in-file": "^4.1.1",
