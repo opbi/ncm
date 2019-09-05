@@ -27,7 +27,7 @@ export const copyConfigFiles = async () => {
 export const updatePackageJson = async () => {
   const template = await jsonfile.readFile('.template/package.json');
   const target = await jsonfile.readFile('./package.json');
-  const updated = Object.assign({}, target);
+  const updated = { ...target };
   updated.devDependencies = sortObjectByKeys({
     ...target.devDependencies,
     ...template.devDependencies,
