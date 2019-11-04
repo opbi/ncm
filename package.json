@@ -10,7 +10,7 @@
   "dependencies": {
     "@octokit/rest": "^16.28.9",
     "commander": "^3.0.1",
-    "cosmiconfig": "^5.2.1",
+    "cosmiconfig": "^6.0.0",
     "cpy": "^7.3.0",
     "inquirer": "^7.0.0",
     "jsonfile": "^5.0.0",
