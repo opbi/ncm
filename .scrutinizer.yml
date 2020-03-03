@@ -1,9 +1,12 @@
 ---
-checks:
-  javascript: true
 build:
   nodes:
     analysis:
-      environment:
-        node:
-          version: 8.10.0
+      # disable inferred commands [dependencies]
+      dependencies:
+        override:
+          - true
+      # as we're only use the code quality analyser
+      tests:
+        override:
+          - js-scrutinizer-run

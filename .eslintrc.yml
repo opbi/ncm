@@ -24,13 +24,14 @@ plugins:
 rules:
   valid-jsdoc: 'off'
   jsdoc/require-param: 'off'
-  jsdoc/require-example: 'off'
+  jsdoc/require-returns: 'off'
   import/extensions: [warn, {js: never}]
   import/no-extraneous-dependencies: 'off'
   import/no-named-as-default: 'off'
   jest/no-disabled-tests: warn
   jest/no-focused-tests: error
   jest/no-identical-title: error
+  jest/no-try-expect: 'off'
   jest/valid-expect: error
   prettier/prettier:
     - error

@@ -4,7 +4,7 @@ version: 2
 references:
   container-config-node8: &container-config-node8
     docker:
-      - image: circleci/node:8
+      - image: circleci/node:dubnium
   restore-deps-cache: &restore-deps-cache
     restore_cache:
       keys:
