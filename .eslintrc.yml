@@ -23,6 +23,7 @@ plugins:
   - prettier
 rules:
   valid-jsdoc: 'off'
+  jsdoc/check-param-names: 'off'
   jsdoc/require-param: 'off'
   jsdoc/require-returns: 'off'
   import/extensions: [warn, {js: never}]

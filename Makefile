@@ -34,7 +34,7 @@ test:
 	@jest
 
 test-watch:
-	@jest --watch
+	@jest --watch --coverage
 
 test-coverage:
 	@jest --coverage
