@@ -10,20 +10,17 @@ env:
   jest/globals: true
 extends:
   - airbnb-base
-  - standard-jsdoc
   - plugin:jest/recommended
-  - plugin:flowtype/recommended
-  - prettier
-  - prettier/flowtype
+  - plugin:jsdoc/recommended
+  - plugin:prettier/recommended
 plugins:
   - import
   - jest
   - jsdoc
-  - flowtype
   - prettier
 rules:
   valid-jsdoc: 'off'
-  jsdoc/check-param-names: 'off'
+  jsdoc/check-types: 'off'
   jsdoc/require-param: 'off'
   jsdoc/require-returns: 'off'
   import/extensions: [warn, {js: never}]
@@ -46,5 +43,5 @@ settings:
       moduleDirectory:
         - ./src
         - ./node_modules
-  flowtype:
-    onlyFilesWithFlowAnnotation: true
+  jsdoc:
+    mode: typescript

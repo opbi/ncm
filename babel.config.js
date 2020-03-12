@@ -8,7 +8,7 @@ module.exports = {
         },
       },
     ],
-    '@babel/preset-flow',
+    '@babel/typescript',
   ],
   plugins: [
     '@babel/plugin-proposal-object-rest-spread',

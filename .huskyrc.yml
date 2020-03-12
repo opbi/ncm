@@ -1,4 +1,4 @@
 ---
 hooks:
   commit-msg: commitlint -E HUSKY_GIT_PARAMS
-  pre-push: make lint flowtype test-coverage
+  pre-push: make lint type-check test-coverage

@@ -9,7 +9,7 @@ install:
 	@yarn
 
 cleanup:
-	@rm -rf dist coverage _book flow-typed node_modules  *.log
+	@rm -rf node_modules coverage dist types docs  *.log
 
 build:
 	@rm -rf dist
@@ -18,8 +18,8 @@ build:
 build-watch:
 	@babel src -d dist --ignore '**/__tests__/*.js' --watch
 
-flowtype:
-	@flow check
+type-check:
+	@tsc
 
 lint:
 	@eslint_d src
@@ -39,9 +39,11 @@ test-watch:
 test-coverage:
 	@jest --coverage
 
-book:
-	@rm -rf _book
-	@gitbook serve
+docs:
+	@documentation build src/** -f html -o docs
+
+docs-watch:
+	@documentation serve --watch src/**
 
 commit:
 	@commit

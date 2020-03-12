@@ -7,6 +7,10 @@ reports/
 
 # dist
 dist/
+types/
+
+# docs output
+docs/
 
 # build cache
 .cache

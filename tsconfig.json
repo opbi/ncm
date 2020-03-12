@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": false,
+    "removeComments": false,
+    "declaration": true,
+    "alwaysStrict": true,
+    "strictNullChecks": false,
+    "target": "es6",
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "outDir": "types",
+    "baseUrl": "./src"
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "types",
+    "dist",
+    "coverage",
+    "docs",
+    "**/__tests__/**"
+  ]
+}
