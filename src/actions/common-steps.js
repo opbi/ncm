@@ -8,7 +8,7 @@ export const readConfig = async () => {
   return config;
 };
 
-export const cloneTemplateRepo = async config => {
+export const cloneTemplateRepo = async (config) => {
   const DEFAULT_TEMPLATE = `opbi/ncm-preset-${config.component.type}`;
   const template = config.component.template || DEFAULT_TEMPLATE;
   await exec(`rm -rf .template`);

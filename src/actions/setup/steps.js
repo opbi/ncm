@@ -17,14 +17,15 @@ export const copyTemplateFiles = async () => {
     ],
     '.',
     {
-      rename: fileName => (fileName === 'TEMPLATE.md' ? 'README.md' : fileName),
+      rename: (fileName) =>
+        fileName === 'TEMPLATE.md' ? 'README.md' : fileName,
     },
   );
   await exec('cp -r .template/src .');
   await exec('cp -r .template/.circleci .');
 };
 
-export const updatePackageJson = async config => {
+export const updatePackageJson = async (config) => {
   const PACKAGE_JSON_PATH = './package.json';
   const template = await jsonfile.readFile(PACKAGE_JSON_PATH);
   const packageJson = configPackageJsonFromTemplate(config, template);
@@ -33,7 +34,7 @@ export const updatePackageJson = async config => {
   });
 };
 
-export const generateReadme = async config => {
+export const generateReadme = async (config) => {
   const PACKAGE_JSON_PATH = './package.json';
   const {
     name: packageJsonName,
@@ -58,7 +59,7 @@ export const generateReadme = async config => {
   });
 };
 
-export const createGithubRepo = async config => {
+export const createGithubRepo = async (config) => {
   const authRequired =
     config.owner.type === 'organisation' || config.component.private;
   const github = await setupGithubClient({ authRequired });
@@ -70,7 +71,7 @@ export const createGithubRepo = async config => {
   });
 };
 
-export const addGitRemoteOrigin = async config =>
+export const addGitRemoteOrigin = async (config) =>
   exec(
     `git remote add origin git@github.com:${config.owner.github}/${config.component.name}.git`,
   );

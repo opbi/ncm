@@ -3,7 +3,7 @@ import yaml from 'write-yaml';
 import { readFile, writeFile } from 'lib/fs';
 import { exec } from 'lib/child-process';
 
-export const createNcmrc = async answers => {
+export const createNcmrc = async (answers) => {
   // TODO: parse answers to an object and validate against the schema
   const template = {
     component: {

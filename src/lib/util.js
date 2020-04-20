@@ -1,4 +1,4 @@
-export const sortObjectByKeys = obj =>
+export const sortObjectByKeys = (obj) =>
   Object.keys(obj)
     .sort()
     .reduce(

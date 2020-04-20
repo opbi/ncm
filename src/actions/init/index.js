@@ -64,7 +64,7 @@ const ownerQuestions = [
 const questions = [...componentQuestions, ...ownerQuestions];
 
 export default () =>
-  inquirer.prompt(questions).then(async answers => {
+  inquirer.prompt(questions).then(async (answers) => {
     await steps.createNcmrc(answers);
     const { componentType, componentName } = answers;
     await steps.addCommentsToNcmrc({ componentName });
