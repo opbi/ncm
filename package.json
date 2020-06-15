@@ -8,7 +8,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@octokit/rest": "^17.9.2",
+    "@octokit/rest": "^18.0.0",
     "commander": "^5.1.0",
     "cosmiconfig": "^6.0.0",
     "cpy": "^8.1.0",
