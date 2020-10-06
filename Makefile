@@ -43,7 +43,7 @@ docs:
 	@documentation build src/** -f html -o docs
 
 docs-watch:
-	@documentation serve --watch src/**
+	@documentation serve --watch src
 
 commit:
 	@commit
