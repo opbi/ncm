@@ -97,6 +97,11 @@ ncm config # it will replace the dotfiles with latest ones from the template
 ncm .env -s <path-of-secrets-in-vault> # it will write secrets in vault to .env file
 ```
 
+#### Upgrade Node Version [TODO]
+```shell
+ncm upgrade node # this will upgrade node version via nvm, update .ncmrc.yml, .nvmrc, babel.config.js, package.json, .circleci/config.yml
+```
+
 #### Develop A Component [TODO]
 As `ncm` is created to manage the whole lifecycle of a component in microservice system, workflow automation is included in the scope. Workflow logics over lifecycles of different types of components defined in [@opbi/practices](https://github.com/opbi/opbi#practices) would be materialised as automation in `ncm`. For example, when the following command in a package component, it would move the Trello card to development stage, create a new branch with preset naming convention, open a PR, link the PR to the Trello Card.
 
